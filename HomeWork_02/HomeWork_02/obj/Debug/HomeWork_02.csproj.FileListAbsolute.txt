@@ -1,0 +1,7 @@
+C:\Users\Pingo\source\repos\HomeWork_02\HomeWork_02\bin\Debug\HomeWork_02.exe.config
+C:\Users\Pingo\source\repos\HomeWork_02\HomeWork_02\bin\Debug\HomeWork_02.exe
+C:\Users\Pingo\source\repos\HomeWork_02\HomeWork_02\bin\Debug\HomeWork_02.pdb
+C:\Users\Pingo\source\repos\HomeWork_02\HomeWork_02\obj\Debug\HomeWork_02.csprojAssemblyReference.cache
+C:\Users\Pingo\source\repos\HomeWork_02\HomeWork_02\obj\Debug\HomeWork_02.csproj.CoreCompileInputs.cache
+C:\Users\Pingo\source\repos\HomeWork_02\HomeWork_02\obj\Debug\HomeWork_02.exe
+C:\Users\Pingo\source\repos\HomeWork_02\HomeWork_02\obj\Debug\HomeWork_02.pdb
