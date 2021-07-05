@@ -1,0 +1,7 @@
+C:\Users\Pingo\source\repos\HomeWork_4.2\HomeWork_4.2\bin\Debug\HomeWork_4.2.exe.config
+C:\Users\Pingo\source\repos\HomeWork_4.2\HomeWork_4.2\bin\Debug\HomeWork_4.2.exe
+C:\Users\Pingo\source\repos\HomeWork_4.2\HomeWork_4.2\bin\Debug\HomeWork_4.2.pdb
+C:\Users\Pingo\source\repos\HomeWork_4.2\HomeWork_4.2\obj\Debug\HomeWork_4.2.csprojAssemblyReference.cache
+C:\Users\Pingo\source\repos\HomeWork_4.2\HomeWork_4.2\obj\Debug\HomeWork_4.2.csproj.CoreCompileInputs.cache
+C:\Users\Pingo\source\repos\HomeWork_4.2\HomeWork_4.2\obj\Debug\HomeWork_4.2.exe
+C:\Users\Pingo\source\repos\HomeWork_4.2\HomeWork_4.2\obj\Debug\HomeWork_4.2.pdb
