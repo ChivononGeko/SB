@@ -50,7 +50,7 @@ namespace HomeWork_4
                         continue;
                     }
                     //Заполнение псевдослучайными числаи во 2 и 3 столбцы
-                    finance[i, j] = random.Next(100, 1000);
+                    finance[i, j] = random.Next(5);
                     Console.Write($"{finance[i, j],17}");
                 }
                 Console.WriteLine();
@@ -68,12 +68,23 @@ namespace HomeWork_4
             }
             //Сортируем массив прыбили
             Array.Sort(profit);
-
-            //Выводим первые три значения, так каак они булут минимальными
+          
+            //Переменная, отвечающая за количесвто итераций
+            int n = 3;
+           
+            //Выводим первые три значения, так каак они булут минимальными. Но в случае равенства, пропускаем вывод и увеличиваем количество итераций
             Console.WriteLine($"Три месяца с наименьшей прибылью:");
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < n; i++)
             {
-                Console.WriteLine(profit[i]);
+                if (profit[i]!=profit[i+1])
+                {
+                    Console.WriteLine(profit[i]);
+                }
+                else
+                {
+                    n++;
+                }
+                
             }
         }        
     }
