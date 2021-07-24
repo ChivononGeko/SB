@@ -1,0 +1,7 @@
+C:\Users\Pingo\source\repos\HomeWork_5.5\HomeWork_5.5\bin\Debug\HomeWork_5.5.exe.config
+C:\Users\Pingo\source\repos\HomeWork_5.5\HomeWork_5.5\bin\Debug\HomeWork_5.5.exe
+C:\Users\Pingo\source\repos\HomeWork_5.5\HomeWork_5.5\bin\Debug\HomeWork_5.5.pdb
+C:\Users\Pingo\source\repos\HomeWork_5.5\HomeWork_5.5\obj\Debug\HomeWork_5.5.csprojAssemblyReference.cache
+C:\Users\Pingo\source\repos\HomeWork_5.5\HomeWork_5.5\obj\Debug\HomeWork_5.5.csproj.CoreCompileInputs.cache
+C:\Users\Pingo\source\repos\HomeWork_5.5\HomeWork_5.5\obj\Debug\HomeWork_5.5.exe
+C:\Users\Pingo\source\repos\HomeWork_5.5\HomeWork_5.5\obj\Debug\HomeWork_5.5.pdb
