@@ -10,8 +10,21 @@ namespace HomeWork_5._4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Укажите количество чисел в последовательности...");
-            int[] nums = Creat(Check(Console.ReadLine()));
+            Console.WriteLine("Укажите количество чисел в последовательности(не менее трех)...");
+            int count = Check(Console.ReadLine());
+            for (;;)
+            {
+                if (count < 3)
+                {
+                    Console.WriteLine("НЕ МЕНЕЕ ТРЕХ !!!");
+                    count = Check(Console.ReadLine());
+                }
+                else
+                {
+                    break;
+                }
+            }
+            int[] nums = Creat(count);
             Print(ArifmProgress(nums), GeometrProgress(nums));
         }
         /// <summary>
@@ -39,7 +52,7 @@ namespace HomeWork_5._4
             int result;
             for (; ; )
             {
-                if (int.TryParse(n, out result) && result > 0) break;
+                if (int.TryParse(n, out result) && result >= 0) break;
                 else
                 {
                     Console.WriteLine("Не корректные данные. Повторите ввод.");

@@ -29,7 +29,7 @@ namespace HomeWork_5._1
             int k = Check(Console.ReadLine());
 
             //Вызывем операцию
-            Print(Multi(matrix, k, n, m));
+            Print(Multi(matrix, k));
 
             //Чтобы можно было наслаждаться результатом и не нагромаждать информацией консоль, для более легкого воспрития
             Console.ReadKey();
@@ -48,7 +48,7 @@ namespace HomeWork_5._1
 
             //Вызываем метод вычитания
             Console.WriteLine($"Матрица после вычитания из другой матрицы:");
-            Print(Sub(matrix, matrix1, n, m));
+            Print(Sub(matrix, matrix1));
 
             Console.ReadKey();
             Console.Clear();
@@ -61,7 +61,7 @@ namespace HomeWork_5._1
 
             //Вызываем метод сложения
             Console.WriteLine($"Матрица после сложения с другой матрицой:");
-            Print(Add(matrix, matrix1, n, m));
+            Print(Add(matrix, matrix1));
 
             Console.ReadKey();
             Console.Clear();
@@ -94,7 +94,7 @@ namespace HomeWork_5._1
 
             //Вызываем метод умножения матрицы на матрицу
             Console.WriteLine($"Матрица после умножения на другую матрицу:");
-            Print(MultiMat(matrix, matrix1, n, m1));
+            Print(MultiMat(matrix, matrix1));
         }
         /// <summary>
         /// Операция проверки
@@ -134,12 +134,15 @@ namespace HomeWork_5._1
         /// <summary>
         /// Операция умножения числа на матрицу
         /// </summary>
-        public static int[,] Multi(int[,] matrix, int k, int n, int m)
+        public static int[,] Multi(int[,] matrix, int k)
         {
-            int[,] result = CreatMatrix(n, m);
-            for (int i = 0; i < result.GetLength(0); i++)
+            int n = matrix.GetLength(0);
+            int m = matrix.GetLength(1);
+            int[,] result = new int[n, m];
+          
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < result.GetLength(1); j++)
+                for (int j = 0; j < m; j++)
                 {
                     result[i, j] = matrix[i, j] * k;
                 }
@@ -149,12 +152,15 @@ namespace HomeWork_5._1
         /// <summary>
         /// Операция сложения двух матриц
         /// </summary>
-        public static int[,] Add(int[,] matrix, int[,] matrix1, int n, int m)
+        public static int[,] Add(int[,] matrix, int[,] matrix1)
         {
-            int[,] result = CreatMatrix(n, m);
-            for (int i = 0; i < result.GetLength(0); i++)
+            int n = matrix.GetLength(0);
+            int m = matrix.GetLength(1);
+            int[,] result = new int[n, m];
+           
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < result.GetLength(1); j++)
+                for (int j = 0; j < m; j++)
                 {
                     result[i, j] = matrix[i, j] + matrix1[i, j];
                 }
@@ -164,12 +170,15 @@ namespace HomeWork_5._1
         /// <summary>
         /// Операция вычитания двух матриц
         /// </summary>
-        public static int[,] Sub(int[,] matrix, int[,] matrix1, int n, int m)
+        public static int[,] Sub(int[,] matrix, int[,] matrix1)
         {
-            int[,] result = CreatMatrix(n, m);
-            for (int i = 0; i < result.GetLength(0); i++)
+            int n = matrix.GetLength(0);
+            int m = matrix.GetLength(1);
+            int[,] result = new int[n, m];
+
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < result.GetLength(1); j++)
+                for (int j = 0; j < m; j++)
                 {
                     result[i, j] = matrix[i, j] - matrix1[i, j];
                 }
@@ -179,14 +188,17 @@ namespace HomeWork_5._1
         /// <summary>
         /// Операция вычитания двух матриц
         /// </summary>
-        public static int[,] MultiMat(int[,] matrix, int[,] matrix1, int n, int m1)
+        public static int[,] MultiMat(int[,] matrix, int[,] matrix1)
         {
-            int[,] result = new int[n, m1];
-            for (int i = 0; i < result.GetLength(0); i++)
+            int n = matrix.GetLength(0);
+            int m = matrix1.GetLength(1);
+            int[,] result = new int[n, m];
+
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < result.GetLength(1); j++)
+                for (int j = 0; j < m; j++)
                 {
-                    for (int k = 0; k < matrix.GetLength(1); k++)
+                    for (int k = 0; k < n; k++)
                     {
                         result[i, j] += matrix[i, k] * matrix1[k, j];
                     }

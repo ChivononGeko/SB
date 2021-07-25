@@ -11,6 +11,7 @@ namespace HomeWork_5._2
         static void Main(string[] args)
         {
             //Для удобства я хотел разбирать одно и то же предложение
+            Console.WriteLine("Введите предложение...");
             string a = Console.ReadLine();
 
             Console.WriteLine("Слова с минимальным кол-ом букв");
@@ -26,7 +27,8 @@ namespace HomeWork_5._2
         /// <returns></returns>
         static string[] MinWord(string str)
         {
-            string[] array = str.Split(' ',',','.','-','_');
+            char[] chars = { ' ', ',', '.', '-', '_' };
+            string[] array = str.Split(chars, StringSplitOptions.RemoveEmptyEntries);
             string help;
             for (int i = 0; i < array.Length-1; i++)
             {
@@ -62,7 +64,8 @@ namespace HomeWork_5._2
         /// <returns></returns>
         static string[] MaxWord(string str)
         {
-            string[] array = str.Split(' ',',' ,'.','-', '_');
+            char[] chars = { ' ', ',', '.', '-', '_' };
+            string[] array = str.Split(chars, StringSplitOptions.RemoveEmptyEntries);
             string help;
             for (int i = 0; i < array.Length - 1; i++)
             {
