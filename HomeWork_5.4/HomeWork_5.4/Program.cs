@@ -89,17 +89,24 @@ namespace HomeWork_5._4
         /// <returns></returns>
         public static bool GeometrProgress(int[] nums)
         {
-            int q = nums[1] / nums[0];
             bool isGeometr = true;
-            for (int i = 0; i < nums.Length-1; i++)
+            if (nums[0] != 0)
             {
-                if (isGeometr)
+                int q = nums[1] / nums[0];
+                for (int i = 0; i < nums.Length - 1; i++)
                 {
-                    if (nums[i + 1] / nums[i] != q)
+                    if (isGeometr)
                     {
-                        isGeometr = false;
+                        if (q * nums[i] != nums[i+1])
+                        {
+                            isGeometr = false;
+                        }
                     }
                 }
+            }
+            else
+            {
+                isGeometr = false;
             }
             return isGeometr;
         }
