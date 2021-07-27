@@ -52,7 +52,7 @@ namespace HomeWork_5._4
             int result;
             for (; ; )
             {
-                if (int.TryParse(n, out result) && result >= 0) break;
+                if (int.TryParse(n, out result) && result != 0) break;
                 else
                 {
                     Console.WriteLine("Не корректные данные. Повторите ввод.");
