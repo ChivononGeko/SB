@@ -52,7 +52,7 @@ namespace HomeWork_5._4
             int result;
             for (; ; )
             {
-                if (int.TryParse(n, out result) && result != 0) break;
+                if (int.TryParse(n, out result)) break;
                 else
                 {
                     Console.WriteLine("Не корректные данные. Повторите ввод.");
@@ -90,23 +90,27 @@ namespace HomeWork_5._4
         public static bool GeometrProgress(int[] nums)
         {
             bool isGeometr = true;
-            if (nums[0] != 0)
+            for (int i = 0; i < nums.Length - 1; i++)
             {
-                int q = nums[1] / nums[0];
-                for (int i = 0; i < nums.Length - 1; i++)
+                if (nums[i] != 0)
                 {
-                    if (isGeometr)
-                    {
-                        if (q * nums[i] != nums[i+1])
+                    int q = nums[1] / nums[0];
+                    
+                        if (isGeometr)
                         {
-                            isGeometr = false;
+                            if (q * nums[i] != nums[i + 1])
+                            {
+                                isGeometr = false;
+                                break;
+                            }
                         }
-                    }
+                    
                 }
-            }
-            else
-            {
-                isGeometr = false;
+                else
+                {
+                    isGeometr = false;
+                    break;
+                }
             }
             return isGeometr;
         }
