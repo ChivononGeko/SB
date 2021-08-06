@@ -12,28 +12,42 @@ namespace HomeWork_6.array
     {
         static void Main(string[] args)
         {
-            int numbers = int.Parse(File.ReadAllText(@"c:\data.txt"));
-            Console.WriteLine("Если Вы хотете увидеть только количество возможных групп, нажмите ENTER");
-
-            if (Console.ReadKey().Key == ConsoleKey.Enter)
+            if (File.Exists(@"c:\data.txt"))
             {
-                int groups = (int)(Math.Log(numbers, 2) + 1);
-                Console.WriteLine($"Количество групп: {groups}");
+                int numbers = Check(File.ReadAllText(@"c:\data.txt"));
+                if (numbers != 0)
+                { 
+                    Console.WriteLine("Если Вы хотете увидеть только количество возможных групп, нажмите ENTER");
+
+                    if (Console.ReadKey().Key == ConsoleKey.Enter)
+                    {
+                        int groups = (int)(Math.Log(numbers, 2) + 1);
+                        Console.WriteLine($"Количество групп: {groups}");
+                    }
+                    else
+                    {
+
+
+                        Writer(numbers);
+
+                        Console.WriteLine(DateTime.Now);
+                        Console.WriteLine("Данные успешно записаны !");
+
+                        Console.WriteLine("Если Вы хотите архивировать файл, нажмите ПРОБЕЛ. В проивном случае любую другую...");
+                        if (Console.ReadKey().Key != ConsoleKey.Enter)
+                        {
+                            GZip(@"c:\data1.txt");
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Файл содержит не корректные данные. Пожалуйста исправтье файл или используйте другой файл.");
+                }
             }
             else
             {
-               
-
-                Writer(numbers);
-                
-                Console.WriteLine(DateTime.Now);
-                Console.WriteLine("Данные успешно записаны !");
-
-                Console.WriteLine("Если Вы хотите архивировать файл, нажмите ПРОБЕЛ. В проивном случае любую другую...");
-                if (Console.ReadKey().Key != ConsoleKey.Enter)
-                {
-                    GZip(@"c:\data1.txt");
-                }
+                Console.WriteLine("Данный файл не существует. Необходимо его созать.");
             }
            
         }
@@ -88,6 +102,14 @@ namespace HomeWork_6.array
                     }
                 }
             }
+        }
+        public static int Check(string n)
+        {
+            int result;
+
+            if (int.TryParse(n, out result) == false && result <= 0) result = 0;
+            
+            return result;
         }
     }
 }
