@@ -12,9 +12,11 @@ namespace HomeWork_6.array
     {
         static void Main(string[] args)
         {
-            if (File.Exists(@"c:\data.txt"))
+            Console.WriteLine("Введите путь к файлу, с которого нужно считать данные...");
+            string file = Console.ReadLine();
+            if (File.Exists(file))
             {
-                int numbers = Check(File.ReadAllText(@"c:\data.txt"));
+                int numbers = Check(File.ReadAllText(file));
                 if (numbers != 0)
                 { 
                     Console.WriteLine("Если Вы хотете увидеть только количество возможных групп, нажмите ENTER");
@@ -26,17 +28,16 @@ namespace HomeWork_6.array
                     }
                     else
                     {
-
-
-                        Writer(numbers);
-
-                        Console.WriteLine(DateTime.Now);
-                        Console.WriteLine("Данные успешно записаны !");
-
-                        Console.WriteLine("Если Вы хотите архивировать файл, нажмите ПРОБЕЛ. В проивном случае любую другую...");
-                        if (Console.ReadKey().Key != ConsoleKey.Enter)
+                        if (Writer(numbers))
                         {
-                            GZip(@"c:\data1.txt");
+                            Console.WriteLine(DateTime.Now);
+                            Console.WriteLine("Данные успешно записаны !");
+
+                            Console.WriteLine("Если Вы хотите архивировать файл, нажмите ПРОБЕЛ. В проивном случае любую другую...");
+                            if (Console.ReadKey().Key != ConsoleKey.Enter)
+                            {
+                                GZip(file);
+                            }
                         }
                     }
                 }
@@ -55,35 +56,47 @@ namespace HomeWork_6.array
         /// Запись в файл
         /// </summary>
         /// <param name="numbers">Количество чисел</param>
-        public static void Writer(int numbers)
+        public static bool Writer(int numbers)
         {
+            bool check = true;
             int groups = (int)(Math.Log(numbers, 2) + 1);
             Console.WriteLine($"Количество групп: {groups}");
+            Console.WriteLine("Укажите файл в который нужно записать данные...");
+            string file = Console.ReadLine();
             int k = 0;
-            using (StreamWriter sw = new StreamWriter(@"c:\data1.txt"))
+            if (File.Exists(file))
             {
-                Console.WriteLine(DateTime.Now);
-                for (int i = 1; i <= numbers; i++)
+                using (StreamWriter sw = new StreamWriter(file))
                 {
-                    if (k <= groups)
+                    Console.WriteLine(DateTime.Now);
+                    for (int i = 1; i <= numbers; i++)
                     {
-                        if (i % Math.Pow(2, k) == 0)
+                        if (k <= groups)
                         {
-                            k++;
-                            sw.WriteLine();
-                            sw.Write(i + " ");
+                            if (i % Math.Pow(2, k) == 0)
+                            {
+                                k++;
+                                sw.WriteLine();
+                                sw.Write(i + " ");
+                            }
+                            else
+                            {
+                                sw.Write(i + " ");
+                            }
                         }
                         else
                         {
-                            sw.Write(i + " ");
+                            k = 0;
                         }
-                    }
-                    else
-                    {
-                        k = 0;
                     }
                 }
             }
+            else
+            {
+                Console.WriteLine("Данный файл не существует. Необходимо его созать");
+                check = false;
+            }
+            return check;
         }
         /// <summary>
         /// Архиватор
@@ -105,9 +118,7 @@ namespace HomeWork_6.array
         }
         public static int Check(string n)
         {
-            int result;
-
-            if (int.TryParse(n, out result) == false && result <= 0) result = 0;
+            if (int.TryParse(n, out int result) == false && result <= 0) result = 0;
             
             return result;
         }
